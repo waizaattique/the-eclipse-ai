@@ -5,34 +5,32 @@
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .formContainer {
   width: 100%;
   max-width: 400px;
   box-sizing: border-box;
-
   padding: 40px;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
   text-align: center;
 }
 
 .formContainer h1 {
   margin: 0 0 8px;
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-playfair), serif;
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: -0.5px;
 }
 
 .formContainer h2 {
   margin: 0 0 28px;
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 22px;
   font-weight: 500;
 }
@@ -47,13 +45,10 @@
   width: 100%;
   box-sizing: border-box;
   padding: 12px 14px;
-
   border: 1px solid #cdcdcd;
   border-radius: 5px;
-
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
-
   outline: none;
 }
 
@@ -68,11 +63,9 @@
 .forgotPassword {
   align-self: flex-end;
   margin-top: -2px;
-
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 13px;
   color: #333333;
-
   text-decoration: none;
 }
 
@@ -84,14 +77,11 @@
   width: 100%;
   padding: 12px 24px;
   margin-top: 6px;
-
   color: #ffffff;
   background-color: #000000;
-
   border: none;
   border-radius: 5px;
-
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 500;
 
@@ -104,8 +94,7 @@
 
 .signupText {
   margin: 16px 0 0;
-
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   color: #333333;
 }

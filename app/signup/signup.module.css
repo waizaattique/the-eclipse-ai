@@ -1,17 +1,20 @@
 
 .signupPage {
   min-height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
   background-color: #ffffff;
-  font-family: var(--font-space-grotesk), sans-serif;
+
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 .formContainer {
   width: 100%;
   max-width: 400px;
+
   box-sizing: border-box;
 
   padding: 32px 36px;
@@ -20,6 +23,7 @@
   border-radius: 10px;
 
   background-color: #ffffff;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
   text-align: center;
@@ -28,18 +32,19 @@
 .formContainer h1 {
   margin: 0 0 6px;
 
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-playfair), serif;
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 800;
+
   letter-spacing: -0.5px;
 }
 
 .formContainer h2 {
   margin: 0 0 24px;
 
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .formContainer form {
@@ -50,6 +55,7 @@
 
 .signupPage input {
   width: 100%;
+
   box-sizing: border-box;
 
   padding: 12px 14px;
@@ -57,7 +63,7 @@
   border: 1px solid #cdcdcd;
   border-radius: 5px;
 
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
 
   outline: none;
@@ -80,8 +86,9 @@
 .passwordNote {
   display: none;
 
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 12px;
+
   color: #777;
 
   text-align: left;
@@ -95,6 +102,7 @@
   width: 100%;
 
   padding: 12px 24px;
+
   margin-top: 4px;
 
   color: #ffffff;
@@ -103,9 +111,9 @@
   border: none;
   border-radius: 5px;
 
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
 
   cursor: pointer;
 }
@@ -117,13 +125,17 @@
 .loginText {
   margin: 4px 0 0;
 
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
+
   color: #555;
 }
 
 .loginText a {
   color: #000000;
+
+  font-family: var(--font-dm-sans), sans-serif;
+
   text-decoration: underline;
 }
 
@@ -142,17 +154,22 @@
 
 .passwordToggle {
   position: absolute;
+
   right: 12px;
   top: 50%;
+
   transform: translateY(-50%);
 
   padding: 0;
+
   border: none;
+
   background: transparent;
 
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-size: 12px;
   font-weight: 500;
+
   color: #555;
 
   cursor: pointer;

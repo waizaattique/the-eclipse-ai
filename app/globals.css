@@ -2,9 +2,8 @@
 
 /* ---------------------------------------------
    DESIGN TOKENS
-   Eclipse motif: near-black "totality" ink on a
-   paper-white base, one warm "corona" accent.
 --------------------------------------------- */
+
 @theme {
   --color-ink: #0a0a0a;
   --color-ink-soft: #333333;
@@ -14,136 +13,250 @@
   --color-corona: #c98a1f;
   --color-corona-dim: #a8710f;
 
-  --font-sans: var(--font-space-grotesk), sans-serif;
-  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-heading: var(--font-playfair), serif;
+  --font-mono: var(--font-dm-mono), monospace;
+  --font-body: var(--font-dm-sans), sans-serif;
 
   --breakpoint-xs: 375px;
 }
 
-
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: var(--color-paper);
-    color: var(--color-ink);
-    font-family: 'Space Grotesk'  , sans-serif;
-    min-height: 100vh;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  min-height: 100vh;
 }
 
+/* =============================================
+   LANDING PAGE / HERO
+   Playfair Display + DM Mono
+============================================= */
+
 /* NAVBAR */
+
 .navbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 2px solid var(--color-line);
-    animation: slideDown 1s ease;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 20px;
+
+  border-bottom: 2px solid var(--color-line);
+
+  animation: slideDown 1s ease;
+
+  font-family: var(--font-mono);
 }
 
 .logo {
-    font-size: clamp(18px, 4vw, 24px);
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--color-ink);
+  font-size: clamp(18px, 4vw, 24px);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--color-ink);
 }
 
 .login-btn {
-    background: var(--color-ink);
-    color: var(--color-paper);
-    border: none;
-    padding: 8px 18px;
-    border-radius: 12px;
-    font-size: clamp(14px, 2.5vw, 18px);
-    font-family: 'JetBrains Mono', monospace;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  background: var(--color-ink);
+  color: var(--color-paper);
+
+  border: none;
+  padding: 8px 18px;
+  border-radius: 12px;
+
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-family: var(--font-mono);
+  font-weight: 400;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .login-btn:hover {
-    transform: scale(1.08);
-    background: var(--color-ink-soft);
+  transform: scale(1.08);
+  background: var(--color-ink-soft);
 }
 
-/* HERO SECTION */
+/* HERO */
+
 .hero {
-    text-align: center;
-    margin-top: clamp(60px, 12vw, 130px);
-    padding: 0 20px;
-    animation: fadeUp 1.2s ease;
+  text-align: center;
+
+  margin-top: clamp(60px, 12vw, 130px);
+
+  padding: 0 20px;
+
+  animation: fadeUp 1.2s ease;
 }
 
 .hero h1 {
-    font-size: clamp(32px, 6vw, 58px);
-    font-weight: bold;
-    color: var(--color-ink);
-    margin-bottom: 30px;
-    animation: textGlow 2s infinite alternate;
+  font-family: var(--font-heading);
+
+  font-size: clamp(38px, 6vw, 68px);
+
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  color: var(--color-ink);
+
+  margin-bottom: 30px;
+
+  animation: textGlow 2s infinite alternate;
 }
 
 .hero p {
-    font-size: clamp(16px, 3vw, 28px);
-    font-family: monospace;
-    line-height: 1.6;
-    color: var(--color-ink-soft);
-    margin-bottom: 50px;
+  font-family: var(--font-mono);
+
+  font-size: clamp(16px, 2.5vw, 24px);
+
+  font-weight: 400;
+
+  line-height: 1.6;
+
+  color: var(--color-ink-soft);
+
+  margin-bottom: 50px;
 }
 
+/* START BUTTON */
+
 .start-btn {
-    display: inline-block;
-    background: var(--color-ink);
-    color: var(--color-paper);
-    border: none;
-    padding: clamp(14px, 2.5vw, 18px) clamp(28px, 6vw, 45px);
-    font-size: clamp(18px, 3vw, 28px);
-    border-radius: 14px;
-    font-family: 'JetBrains Mono', monospace;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.35);
+  display: inline-block;
+
+  background: var(--color-ink);
+  color: var(--color-paper);
+
+  border: none;
+
+  padding:
+    clamp(14px, 2.5vw, 18px)
+    clamp(28px, 6vw, 45px);
+
+  font-size: clamp(16px, 2.5vw, 22px);
+
+  font-family: var(--font-mono);
+  font-weight: 500;
+
+  border-radius: 14px;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.35);
 }
 
 .start-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: #111;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  transform: translateY(-5px) scale(1.05);
+
+  background: #111;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
-/* ANIMATIONS */
+
+/* =============================================
+   APP / LOGGED-IN WORKSPACE
+   Playfair Display + DM Sans
+============================================= */
+
+/*
+   Use these classes for your actual
+   student workspace after login.
+*/
+
+.app-heading,
+.app h1,
+.app h2,
+.app h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.app,
+.app p,
+.app span,
+.app label,
+.app input,
+.app textarea,
+.app button {
+  font-family: var(--font-body);
+}
+
+
+/* =============================================
+   ANIMATIONS
+============================================= */
+
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
+/* =============================================
+   ACCESSIBILITY
+============================================= */
+
 @media (prefers-reduced-motion: reduce) {
-    .navbar, .hero, .hero h1, .login-btn, .start-btn {
-        animation: none !important;
-        transition: none !important;
-    }
+  .navbar,
+  .hero,
+  .hero h1,
+  .login-btn,
+  .start-btn {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: auto;
+  margin-right: 32px;
+}
+
+.nav-links a {
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-corona);
 }

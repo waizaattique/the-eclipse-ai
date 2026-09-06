@@ -4,6 +4,12 @@ export default function Home() {
       <nav className="navbar">
         <div className="logo">TheEclipse.ai</div>
 
+        <div className="nav-links">
+          <a href="#features">Features</a>
+          <a href="#blog">Blog</a>
+          <a href="#about">About</a>
+        </div>
+
         <a href="/login" className="login-btn">
           Login
         </a>
