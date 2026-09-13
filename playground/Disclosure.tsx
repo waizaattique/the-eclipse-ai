@@ -15,6 +15,7 @@
  */
 
 import { useId, useState } from "react";
+import { playgroundSecondaryButton } from "./styles";
 
 // ─── Interfaces ──────────────────────────────────────────────────────────────
 
@@ -66,7 +67,7 @@ export function Disclosure({
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-mono text-sm text-ink transition-colors hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona focus-visible:ring-offset-1"
+        className={`${playgroundSecondaryButton} flex w-full items-center justify-between gap-4 px-5 py-4 text-left`}
       >
         <span>{title}</span>
 

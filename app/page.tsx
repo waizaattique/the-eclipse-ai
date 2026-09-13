@@ -8,6 +8,9 @@ export default function Home() {
           <a href="#features">Features</a>
           <a href="#blog">Blog</a>
           <a href="#about">About</a>
+          {process.env.NODE_ENV === "development" && (
+            <a href="/playground">Playground</a>
+          )}
         </div>
 
         <a href="/login" className="login-btn">

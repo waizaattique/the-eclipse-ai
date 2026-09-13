@@ -31,6 +31,12 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import {
+  playgroundField,
+  playgroundIconButton,
+  playgroundPrimaryButton,
+  playgroundSecondaryButton,
+} from "./styles";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -119,7 +125,8 @@ export function Modal({
       // Snapshot the current active element before we steal focus.
       triggerRef.current = document.activeElement;
 
-      // Prevent the page behind the modal from scrolling.
+      // Preserve any caller-owned inline overflow before locking page scroll.
+      const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
 
       // Move focus into the dialog on the next animation frame, after the
@@ -132,11 +139,11 @@ export function Modal({
         (focusable[0] ?? panel).focus();
       });
 
-      return () => cancelAnimationFrame(raf);
+      return () => {
+        cancelAnimationFrame(raf);
+        document.body.style.overflow = originalOverflow;
+      };
     } else {
-      // Restore scroll.
-      document.body.style.overflow = "";
-
       // Return focus to the element that triggered the modal.
       if (triggerRef.current instanceof HTMLElement) {
         triggerRef.current.focus();
@@ -256,7 +263,7 @@ export function Modal({
               type="button"
               onClick={onClose}
               aria-label="Close dialog"
-              className="rounded-md p-1 text-ink-soft transition-colors hover:bg-mist hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona"
+              className={playgroundIconButton}
             >
               <svg
                 aria-hidden="true"
@@ -309,7 +316,7 @@ function AiTutorExample() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="rounded-lg border border-line px-4 py-2.5 font-mono text-sm text-ink transition-colors hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona"
+        className={playgroundPrimaryButton}
       >
         Ask the AI Tutor →
       </button>
@@ -344,7 +351,7 @@ function AiTutorExample() {
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 placeholder="e.g. Can you explain the difference between SN1 and SN2 reactions?"
-                className="w-full resize-none rounded-md border border-line bg-paper px-3 py-2 text-sm text-ink placeholder:text-ink-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona"
+                className={`${playgroundField} resize-none`}
               />
             </div>
 
@@ -352,7 +359,7 @@ function AiTutorExample() {
               <button
                 type="button"
                 onClick={handleClose}
-                className="rounded-md px-4 py-2 text-sm text-ink-soft transition-colors hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona"
+                className={playgroundSecondaryButton}
               >
                 Cancel
               </button>
@@ -360,7 +367,7 @@ function AiTutorExample() {
                 type="button"
                 onClick={handleAsk}
                 disabled={!question.trim()}
-                className="rounded-md bg-ink px-4 py-2 text-sm text-paper transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-40"
+                className={playgroundPrimaryButton}
               >
                 Ask
               </button>
@@ -391,7 +398,7 @@ function AiTutorExample() {
               <button
                 type="button"
                 onClick={handleClose}
-                className="rounded-md bg-ink px-4 py-2 text-sm text-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona focus-visible:ring-offset-2"
+                className={playgroundPrimaryButton}
               >
                 Done
               </button>
@@ -441,7 +448,7 @@ function BreakEnforcementExample() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="rounded-lg border border-line px-4 py-2.5 font-mono text-sm text-ink transition-colors hover:bg-mist focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona"
+        className={playgroundPrimaryButton}
       >
         Trigger break enforcement →
       </button>
@@ -519,13 +526,7 @@ function BreakEnforcementExample() {
             type="button"
             disabled={!done}
             onClick={() => setOpen(false)}
-            className={[
-              "rounded-lg px-6 py-2.5 font-mono text-sm transition-all",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona focus-visible:ring-offset-2",
-              done
-                ? "bg-ink text-paper cursor-pointer"
-                : "bg-ink text-paper opacity-30 cursor-not-allowed",
-            ].join(" ")}
+            className={playgroundPrimaryButton}
           >
             {done ? "Resume studying" : `Resume studying (${remaining}s)`}
           </button>

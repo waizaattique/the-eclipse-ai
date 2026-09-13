@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import {
   Playfair_Display,
   DM_Mono,
-  DM_Sans,
-} from "next/font/google";
+  DM_Sans, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -37,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmMono.variable} ${dmSans.variable}`}
+      className={cn(playfair.variable, dmMono.variable, dmSans.variable, "font-sans", geist.variable)}
     >
       <body>{children}</body>
     </html>

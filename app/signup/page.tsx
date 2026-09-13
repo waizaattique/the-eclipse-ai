@@ -2,15 +2,25 @@
 import styles from "./signup.module.css";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    router.push("/home");
+  }
 
   return (
     <main className={styles.signupPage}>
       <div className={styles.formContainer}>
-        <form action="/home">
+        <form onSubmit={handleSubmit}>
           <h1>TheEclipse.ai</h1>
           <h2>Sign Up</h2>
 
@@ -20,6 +30,8 @@ export default function SignupPage() {
             name="email"
             placeholder="Enter your Email"
             required
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
 
           <div className={styles.passwordGroup}>
@@ -32,6 +44,8 @@ export default function SignupPage() {
                 minLength={6}
                 maxLength={12}
                 required
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
               />
 
               <button
@@ -56,6 +70,8 @@ export default function SignupPage() {
               name="confirm-password"
               placeholder="Confirm Password"
               required
+              value={confirmPassword}
+              onChange={(event) => setConfirmPassword(event.target.value)}
             />
 
             <button

@@ -17,6 +17,7 @@
  */
 
 import { useId, useRef, useState } from "react";
+import { playgroundSecondaryButton } from "./styles";
 
 // ─── Interfaces ──────────────────────────────────────────────────────────────
 
@@ -171,8 +172,7 @@ export function Tabs({
               onClick={() => activate(i)}
               onKeyDown={handleKeyDown}
               className={[
-                "shrink-0 rounded-t-md px-4 py-2 font-mono text-sm transition-colors",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona focus-visible:ring-offset-1",
+                `${playgroundSecondaryButton} shrink-0 rounded-b-none px-4 py-2`,
                 isActive
                   ? "border border-b-paper border-line bg-paper text-ink -mb-px"
                   : "border border-transparent text-ink-soft hover:text-ink hover:bg-mist",
@@ -315,7 +315,7 @@ const DEMO_TABS: TabItem[] = [
             <button
               key={label}
               type="button"
-              className="flex flex-col items-center gap-1 rounded-lg border border-line px-4 py-3 text-sm text-ink-soft transition-colors hover:border-corona hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-corona"
+              className={`${playgroundSecondaryButton} flex flex-col items-center gap-1 px-4 py-3 text-ink-soft`}
             >
               <span aria-hidden="true" className="text-xl">
                 {emoji}
